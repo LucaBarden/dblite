@@ -11,7 +11,8 @@ typedef struct {
     ssize_t input_length;
 } InputBuffer;
 
-InputBuffer* new_input_buffer() {
+InputBuffer* new_input_buffer()
+{
     InputBuffer* input_buffer = (InputBuffer*)malloc(sizeof(InputBuffer));
     input_buffer->buffer = NULL;
     input_buffer->buffer_length = 0;
@@ -23,7 +24,8 @@ InputBuffer* new_input_buffer() {
 
 void print_prompt() { printf("db > "); }
 
-void read_input(InputBuffer* input_buffer) {
+void read_input(InputBuffer* input_buffer)
+{
     ssize_t bytes_read = getline(&(input_buffer->buffer), &(input_buffer->buffer_length), stdin);
     if(bytes_read <= 0) {
 	printf("Error reading input\n");
@@ -34,12 +36,14 @@ void read_input(InputBuffer* input_buffer) {
     input_buffer->buffer[bytes_read - 1] = 0;
 }
 
-void close_input_buffer(InputBuffer* input_buffer) {
+void close_input_buffer(InputBuffer* input_buffer)
+{
     free(input_buffer->buffer);
     free(input_buffer);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
   InputBuffer* input_buffer = new_input_buffer();
   while (true) {
     print_prompt();
