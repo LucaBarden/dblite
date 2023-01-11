@@ -2,4 +2,4 @@
 
 set -xe
 
-clang -Wall -Wextra db.c -o db
+clang -Wall -Wextra db.c -o db.run
