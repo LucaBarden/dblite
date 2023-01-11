@@ -2,4 +2,4 @@
 
 set -xe
 
-gcc -Wall -Wextra db.c -o db
+clang -Wall -Wextra db.c -o db
